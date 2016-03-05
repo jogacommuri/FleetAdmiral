@@ -1,0 +1,27 @@
+angular.module('appRoutes',['ngRoute'])
+    .config(function($routeProvider,$locationProvider){
+        $routeProvider
+            .when('/',{
+            templateUrl:'app/views/home.html',
+            controller:'mainController',
+            controllerAa:'main'
+        })
+        .when('/login',{
+            templateUrl:'app/views/login.html'
+        })
+        .when('/signup',{
+            templateUrl:'app/views/signup.html'
+        })
+        .when('/addEquipment',{
+            templateUrl:'app/views/addEquip.html',
+            controller:'equipController',
+            controllerAs:'equip'
+            
+        })
+        .when('/editEquipment',{
+            templateUrl:'app/views/editEquip.html',
+            controller:'equipController',
+            controllerAs:'equip'
+        })
+        $locationProvider.html5Mode(true);
+})

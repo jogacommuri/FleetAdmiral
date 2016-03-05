@@ -1,0 +1,31 @@
+{
+  "name": "fleetadmiral",
+  "description": "fleetadmiral",
+  "main": "app.js",
+  "authors": [
+    "jogacommuri@yahoo.com"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "angular-xeditable": "^0.1.10"
+  }
+}

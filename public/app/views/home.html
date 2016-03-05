@@ -1,0 +1,104 @@
+
+<div class="container-fluid" >
+    <div class="jumbotron text-center" ng-if="!main.loggedIn">
+        <div>
+            <p>Login to fleetAdmiral</p>
+            <a href="/login" class="btn btn-warning">Login</a>
+            <a href="/signup" class="btn btn-warning">SignUP</a>
+        </div>
+    </div>
+
+    <div class="row" ng-if="main.loggedIn">
+        <div class="col-md-12" ng-controller="equipController as equip">
+            
+            <div class="col-md-12 container-fluid" ng-controller="equipController as equip">
+                <ul class="nav nav-pills" style="background-color:lightgray">
+                    <li class="col-lg-2" ng-class="{active:equip.isSet(1)}"><a href ng-click="equip.setTab(1)">All</a></li>
+                    <li class="col-lg-2" ng-class="{active:equip.isSet(2)}"><a href ng-click="equip.setTab(2)">Operational</a></li>
+                    <li class="col-lg-2" ng-class="{active:equip.isSet(3)}"><a href ng-click="equip.setTab(3)">Parked</a></li>
+                    <li class="col-lg-2" ng-class="{active:equip.isSet(4)}"><a href ng-click="equip.setTab(4)">For Sale</a></li>
+                    <li class="col-lg-2" ng-class="{active:equip.isSet(5)}"><a href ng-click="equip.setTab(5)">Sold</a></li>
+                </ul>
+
+                <div class="col-md-3"  ng-repeat="each in equip.equipments | reverse " ng-show="equip.isSet(1)">
+                    <a  ng-click="equip.getEquipment(each)">
+                    <!--<a ng-click="equip.modalUpdate('lg',each)">-->
+                    
+                        
+                        <div id="dashboard">
+                            <img class="img-responsive" src="{{each.img}}" style="height:150px;"/>
+                            <br/>
+    <!--                    <p>{{each}}</p>-->
+                            <p style="width:190px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;">{{each.machine_type}}</p>
+                            <p>{{each.machine_id}}</p>                   
+                            <p>{{each.created | date:'MM/dd/yyyy'}}</p>
+                            <p class="{{each.machine_state}}" style="text-align:right;">{{each.machine_state}}</p>
+                        </div>
+                    </a>
+                       
+                    
+                    
+                    <!--<p>{{each}}</p>-->
+                </div>
+                <div class="col-md-3" ng-repeat="each in equip.equipments | filter: { machine_state: 'operational' } " ng-show="equip.isSet(2)">
+                    <div id="dashboard">
+                        <img class="img-responsive" src="{{each.img}}" style="height:150px;">
+                        <br/>
+                        <p style="width:190px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;">{{each.machine_type}}</p>
+                        <p>{{each.machine_id}}</p>
+                        <p>{{each.created}}</p>
+                        <p class="{{each.machine_state}}" style="text-align:right;">{{each.machine_state}}</p>
+                    </div>
+                   
+                    <!--<p>{{each}}</p>-->
+                </div>
+                <div class="col-md-3" ng-repeat="each in equip.equipments | filter: { machine_state: 'parked' } " ng-show="equip.isSet(3)" >
+                    <div id="dashboard">
+                        <img class="img-responsive" src="{{each.img}}" style="height:150px;">
+                        <br/>
+                        <p style="width:190px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;">{{each.machine_type}}</p>
+                        <p>{{each.machine_id}}</p>
+                        <p>{{each.created}}</p>
+                        <p class="{{each.machine_state}}" style="text-align:right;">{{each.machine_state}}</p>
+                    </div>
+                    
+                    <!--<p>{{each}}</p>-->
+                    <!--<a href="/editEquipment" ng-click="equip.getId(each)">edit</a>-->
+                </div>
+                <div class="col-md-3" ng-repeat="each in equip.equipments | filter: { machine_state: 'For Sale' } " ng-show="equip.isSet(4)" >
+                    <div id="dashboard">
+                        <img class="img-responsive" src="{{each.img}}" style="height:150px;">
+                        <br/>
+                        <p style="width:190px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;">{{each.machine_type}}</p>
+                        <p>{{each.machine_id}}</p>
+                        <p>{{each.created}}</p>
+                        <p class="{{each.machine_state}}" style="text-align:right;">{{each.machine_state}}</p>
+                    </div>
+                    
+                    <!--<p>{{each}}</p>-->
+                </div>
+                <div class="col-md-3" ng-repeat="each in equip.equipments | filter: { machine_state: 'sold' } " ng-show="equip.isSet(5)" style="">
+                    <div id="dashboard">
+                        <img class="img-responsive" src="{{each.img}}" style="height:150px;">
+                        <p style="width:190px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;">{{each.machine_type}}</p>
+                        <p>{{each.machine_id}}</p>
+                        <p>{{each.created}}</p>
+                        <p class="{{each.machine_state}}"style="text-align:right;">{{each.machine_state}}</p>
+                    </div>
+                   
+                    <!--<p>{{each}}</p>-->
+                </div>
+                
+            </div>
+            
+            <div id="add" align="right">
+                <a href="/addEquipment">
+                    <span style="color:#ffad33;font-size:25px;text-align:right;">
+                        <i class="fa-5x fa fa-plus-circle"></i>
+                    </span>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>

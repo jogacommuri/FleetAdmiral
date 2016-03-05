@@ -1,0 +1,94 @@
+ 
+<div class="container-fluid col-md-8 col-md-offset-2 " ng-controller="equipController as equip" ng-init="load()">
+    <div class="row">
+        
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                Equipment Information
+            </div>
+         
+            <div class="panel-body">
+                <form method="post" ng-submit="equip.CreateEquipment()">
+                    
+                    <div class="form-group ">
+                        <div class="col-md-3">
+                        <img class="img-responsive" src="{{equip.equipData.machine_type.img}}" style="width:200px;height:150px;">
+                        </div>
+                        
+                    
+                    <div class="col-md-9">
+                         <label for="machine_type"> Machine_type: </label>
+                            <select class="form-control" ng-model="equip.equipData.machine_type" ng-options="machine_type.name for machine_type in machine_type">
+                            </select>
+
+                    <!--</div>
+                    <div class="form-group">-->
+                        <label for="manufacturer"> Manufacturer: </label>
+                            <select class="form-control" ng-model="equip.equipData.manufacturer" ng-options="manufacturer.name for manufacturer in manufacturer">
+                            </select>
+                        
+                        <br/>
+                          <!--<tt>machine_type = {{$scope.machine_type}}</tt><br/>
+<tt>Manufacturer = {{equip.equipData.manufacturer.name}}</tt>-->
+                       <!-- <br/>
+                        <input class="form-control input-lg" type="text" name="manufacturer" 
+                           ng-model="equip.equipData.manufacturer" palceholder="manufacturer" required>-->
+                    <!--</div>
+                    <div class="form-group">-->
+                        <label for="machine_type">Model</label>
+                        <br/>
+                        <input class="form-control" type="text" name="model" 
+                           ng-model="equip.equipData.model" palceholder="model" required>
+                    <!--</div>
+                    <div class="form-group">-->
+                        <label for="machine_type">Machine ID</label>
+                        <br/>
+                        <input class="form-control" type="text" name="machine_id"
+                           ng-model="equip.equipData.machine_id" palceholder="machine_id" required>
+                    <!--</div>
+                    <div class="form-group">-->
+                        <label for="machine_type">Notes</label>
+                        <br/>
+                        <textarea row="4" cols="40" class="form-control input-lg" type="text-area" name="notes" 
+                           ng-model="equip.equipData.notes" palceholder="notes" required>
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="machine_type">Address</label>
+                        <br/>
+                        <div id="map" style="height: 300px"></div>
+         
+                        <input class="form-control" id="address" type="address" name="address" value=""
+                         palceholder="address" required>
+                
+                    </div>
+                    <div class="form-group">
+                        <label for="machine_type">Current Machine State</label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="exampleRadios" id="exampleRadios1" value="Operational" ng-model="equip.equipData.machine_state">
+                            Operational
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="exampleRadios" id="exampleRadios1" value="Parked" ng-model="equip.equipData.machine_state">
+                            Parked
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="exampleRadios" id="exampleRadios1" value="For Sale" ng-model="equip.equipData.machine_state">
+                            For Sale
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="exampleRadios" id="exampleRadios1" value="Sold" ng-model="equip.equipData.machine_state">
+                            Sold
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn bt-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

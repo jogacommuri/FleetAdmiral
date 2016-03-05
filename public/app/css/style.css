@@ -1,0 +1,39 @@
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #ffad33;
+}
+.col-lg-2{
+    padding: 0px;
+}
+.col-md-3{
+    padding-top:10px;
+}
+#dashboard{
+    padding: 15px;
+    border: 1px solid gray;
+}
+
+.Parked{
+    color: greenyellow;
+    text-align: right;
+}
+.Operational{
+    color: blue;
+    text-align: right;
+}
+.For{
+    color: orange;
+    text-align: right;
+}
+.Sold{
+    color: crimson;
+    text-align: right;
+}
+a {
+       color:black; 
+    }
+    
+a:focus, a:hover {
+    color:black;
+    text-decoration: none;
+}

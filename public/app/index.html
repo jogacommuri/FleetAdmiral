@@ -1,0 +1,68 @@
+<!Doctype html>
+<html ng-app="fleetAdmiral">
+<head>
+	<base href='/'>
+	<title>Fleet Admiral</title>
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css" >
+    <link href="./font-awesome-4.5.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="app/css/style.css">
+	<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
+     
+    
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    
+	<!-- services -->
+	<script type="text/javascript" src="app/services/authService.js"></script>
+	<script type="text/javascript" src="app/services/userService.js"></script>
+	<script type="text/javascript" src="app/services/equipService.js"></script>
+	<!-- Controllers -->
+	<script type="text/javascript" src="app/controllers/mainCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/userCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/equipCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/equipUpdateCtrl.js"></script>
+	<!-- Directives -->
+	<script type="text/javascript" src="app/directives/reverse.js"></script>
+
+	<script type="text/javascript" src="app/appRoutes.js"></script>
+	<script type="text/javascript" src="app/app.js"></script>
+    
+   
+</head>
+<body ng-controller ="mainController as main">
+
+	<header>
+		<div class="navbar navbar-default" style="background-color: #ffad33;color:#fff;">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="/" class="navar-brand">
+						 
+                        <h1 style="color:white;">
+                            <span>
+                                <i class="fa-2x fa fa-truck"></i>
+                            </span>fleetAdmiral
+                        </h1>
+					</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="/users"></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!--<li ng-if="!main.loggedIn"><a href="/login"><h3 style="color:#fff;">Login</h3></a></li>
+					<li ng-if="!main.loggedIn"><a href="/signup"><h3 style="color:#fff;">SignUP</h3></a></li>-->
+					<li ng-if="main.loggedIn"><a href="#"><h4 style="color:#fff;">{{main.user.name}}</h4></a></li>
+					<li ng-if="main.loggedIn"><a href="#"ng-click="main.doLogout()"><h4 style="color:#fff;">Logout</h4></a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main class="container">
+		<div ng-view>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCst6_KC98axd-0ZewTUZm33712R5eB_Fs"
+                        async defer></script>
+    <script type="text/javascript" src="app/map.js"></script>
+        </div>
+	</main>
+	
+</body>
+</html>
