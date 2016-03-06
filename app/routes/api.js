@@ -128,6 +128,7 @@ module.exports = function(app,express,io){
         
         console.log(req.body.machine_type);
         */
+        
 			var equipment = new Equipment({
 				creator: req.decoded.id,
                 img: req.body.machine_type.img,
